@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import logo from './logo.svg'
 import './App.css'
+import rootState from '@/store/rootState'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const device = useSelector<rootState>(state => state.basic)
+  useEffect(
+    () => {
+      console.log('设备基础信息---->', device)
+    },
+    [device]
+  )
+  
   return (
     <div className="App">
       <header className="App-header">
