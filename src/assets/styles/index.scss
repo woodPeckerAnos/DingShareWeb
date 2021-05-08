@@ -2,3 +2,8 @@
 @import './reset';
 @import './variables';
 @import './global';
+
+// 继承css变量的用例
+// button {
+//     color: var(--themecolor)
+// }

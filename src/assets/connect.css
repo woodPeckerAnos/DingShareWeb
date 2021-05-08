@@ -1,0 +1,4 @@
+/* 用于沟通js和样式表的关联css */
+html {
+    --themecolor: red;
+}
