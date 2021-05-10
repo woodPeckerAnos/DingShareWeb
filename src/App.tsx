@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 18:45:07
- * @LastEditTime: 2021-05-10 10:59:21
+ * @LastEditTime: 2021-05-10 17:54:20
  * @LastEditors: Please set LastEditors
  * @Description: 主程序
  */
@@ -21,6 +21,8 @@ function App() {
   ;useEffect(
     () => {
       console.log('设备基础信息---->', device)
+      const _root = document.getElementsByTagName('html')[0]
+      console.log(_root.classList)
     },
     [device]
   )
