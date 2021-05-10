@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-05-10 14:34:32
+ * @LastEditTime: 2021-05-10 22:46:33
  * @LastEditors: Please set LastEditors
  * @Description: Vite Configs
  */
@@ -22,12 +22,12 @@ export default {
     base:  './', 
     resolve: {
       // 别名
-      alias: { 
+      alias: {
         '@': path.resolve(__dirname, 'src'),
         'utils': path.resolve(__dirname, 'src', 'utils'),
         'commonDefines': path.resolve(__dirname, 'src', 'defines', 'common'),
         'defines':  path.resolve(__dirname, 'src', 'defines'),
-        'UI': path.resolve(__dirname, 'src', 'UI')
+        'UI': path.resolve(__dirname, 'src', 'UI'),
       }
     },
     build: {
@@ -35,6 +35,14 @@ export default {
         input: {
           main: resolve(__dirname, 'index.html'),
           login: resolve(__dirname, 'login', 'index.html')
+        }
+      }
+    },
+    css: {
+      preprocessorOptions: {
+        // 自定义antd样式主题, 生效js 以实现主题混入覆盖
+        less: {
+          javascriptEnabled: true
         }
       }
     }
