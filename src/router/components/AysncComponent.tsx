@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 21:02:29
- * @LastEditTime: 2021-05-09 22:51:39
+ * @LastEditTime: 2021-05-10 10:38:54
  * @LastEditors: Please set LastEditors
  * @Description: 异步加载组件 -> 构建异步加载路由
  */
@@ -34,6 +34,7 @@ function AsyncComponent(props: AsyncComponentProps): null|JSX.Element {
     return LoadedComponent ? React.createElement(LoadedComponent, rest) : null
 }
 
+// helpers
 async function LoadingComponent(load: updateStateFunc, importFunc:　importFunc): Promise<void> {
     const esModule = await importFunc()
     const $Comp = esModule.default

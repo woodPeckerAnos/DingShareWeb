@@ -1,21 +1,22 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 18:45:07
- * @LastEditTime: 2021-05-09 23:27:10
+ * @LastEditTime: 2021-05-10 10:59:21
  * @LastEditors: Please set LastEditors
  * @Description: 主程序
  */
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import rootState from '@/store/rootState'
+import { routeData } from '@/store/routes/routesState'
 import { updateRoutes } from '@/store/routes/actions'
-import FrontRoutes from '@/router'
+import FrontRoutes, { createRealRoutes } from '@/router'
 import routes from '@/router/routes'
 
 function App() {
   const 
-    [count, setCount] = useState(0),
     device = useSelector<rootState>(state => state.basic),
+    realRoutes = useSelector<rootState, routeData[]>(state => state.routes),
     dispatch = useDispatch()
   ;useEffect(
     () => {
@@ -26,8 +27,7 @@ function App() {
   useEffect(
     () => {
       // 初始化路由
-      const _routes = FrontRoutes.createRealRoutes(routes)
-      // fixme: 在useEffect中使用dispatch报错?
+      const _routes = createRealRoutes(routes)
       dispatch(updateRoutes(_routes))
     },
     []
@@ -35,7 +35,7 @@ function App() {
   
   return (
     <div className="App">
-      <FrontRoutes/>
+      <FrontRoutes routes={realRoutes}/>
     </div>
   )
 }

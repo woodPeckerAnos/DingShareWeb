@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-05-09 23:24:18
+ * @LastEditTime: 2021-05-10 14:34:32
  * @LastEditors: Please set LastEditors
  * @Description: Vite Configs
  */
@@ -26,7 +26,8 @@ export default {
         '@': path.resolve(__dirname, 'src'),
         'utils': path.resolve(__dirname, 'src', 'utils'),
         'commonDefines': path.resolve(__dirname, 'src', 'defines', 'common'),
-        'defines':  path.resolve(__dirname, 'src', 'defines')
+        'defines':  path.resolve(__dirname, 'src', 'defines'),
+        'UI': path.resolve(__dirname, 'src', 'UI')
       }
     },
     build: {

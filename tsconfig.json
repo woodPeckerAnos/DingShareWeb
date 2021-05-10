@@ -20,7 +20,8 @@
       "@/*": ["./src/*"],
       "utils/*": ["./src/utils/*"],
       "commonDefines": ["./src/defines/common"],
-      "defines/*": ["./src/defines/*"]
+      "defines/*": ["./src/defines/*"],
+      "UI/*": ["./src/UI/*"]
     } 
   },
   "include": ["./src"]
