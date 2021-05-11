@@ -21,7 +21,8 @@
       "utils/*": ["./src/utils/*"],
       "commonDefines": ["./src/defines/common"],
       "defines/*": ["./src/defines/*"],
-      "UI/*": ["./src/UI/*"]
+      "UI/*": ["./src/UI/*"],
+      "fetch": ["./src/services/fetch/index"]
     } 
   },
   "include": ["./src"]

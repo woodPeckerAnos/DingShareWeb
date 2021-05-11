@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 16:30:25
- * @LastEditTime: 2021-05-08 18:03:14
+ * @LastEditTime: 2021-05-11 16:01:57
  * @LastEditors: Please set LastEditors
  * @Description: 封装基于fetch的请求 1，普通fetch 2，基于权限的fetch
  */
@@ -10,7 +10,7 @@
 
 // 普通请求
 function normalRequest(method, url, options) {
-
+    console.log('test request')
 }
 
 // 在响应中添加对权限信息的监听，没有权限的情况下直接跳转到登录页

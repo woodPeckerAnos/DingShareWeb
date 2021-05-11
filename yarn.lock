@@ -4,7 +4,7 @@
 
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
-  resolved "https://registry.nlark.com/@ant-design/colors/download/@ant-design/colors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
+  resolved "https://registry.npm.taobao.org/@ant-design/colors/download/@ant-design/colors-6.0.0.tgz?cache=0&sync_timestamp=1612935497491&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcolors%2Fdownload%2F%40ant-design%2Fcolors-6.0.0.tgz#9b9366257cffcc47db42b9d0203bb592c13c0298"
   integrity sha1-m5NmJXz/zEfbQrnQIDu1ksE8Apg=
   dependencies:
     "@ctrl/tinycolor" "^3.4.0"

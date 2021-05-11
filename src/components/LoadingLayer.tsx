@@ -1,14 +1,17 @@
 /*
  * @Author: your name
  * @Date: 2021-05-10 14:31:05
- * @LastEditTime: 2021-05-10 21:16:49
+ * @LastEditTime: 2021-05-11 15:44:19
  * @LastEditors: Please set LastEditors
  * @Description: 请求展示Loading状态的蒙层
  */
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { LoadingOutlined } from '@ant-design/icons'
 import { Spin } from 'UI/main' 
 import rootState from '@/store/rootState'
+
+const customisedIcon = <LoadingOutlined spin/>
 
 function LoadingLayer() {
     const 
@@ -27,6 +30,7 @@ function LoadingLayer() {
         >
             <Spin
                 spinning={loading}
+                indicator={customisedIcon}
             />
         </div>
     )
