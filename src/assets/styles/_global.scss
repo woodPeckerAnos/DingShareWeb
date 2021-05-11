@@ -1,11 +1,19 @@
 /*
  * @Author: your name
  * @Date: 2021-05-07 16:46:25
- * @LastEditTime: 2021-05-11 10:49:52
+ * @LastEditTime: 2021-05-11 22:30:15
  * @LastEditors: Please set LastEditors
  * @Description: 全局样式文件
  */
 
 html {
-    font-size: var(--rootfontsize)
+    font-size: var(--rootfontsize);
+
+    #root {
+        height: 100%;
+        .App {
+            height: 100%;
+            overflow-y: auto;
+        }
+    }
 }

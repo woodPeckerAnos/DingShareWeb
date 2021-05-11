@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-05-09 21:43:08
- * @LastEditTime: 2021-05-09 21:49:24
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-12 00:02:27
+ * @LastEditors: WoodpeckerAnos
  * @Description: In User Settings Edit
  * @FilePath: \dingshare-web\src\store\routes\routesState.d.ts
  */
@@ -12,6 +12,7 @@ interface routeData {
     menuName: string;
     menuUrl: string;
     menuComponent: string;
+    exact?: boolean;
     children?: routeData[];
 }
 
