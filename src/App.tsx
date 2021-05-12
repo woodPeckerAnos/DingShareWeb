@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 18:45:07
- * @LastEditTime: 2021-05-10 22:10:18
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-12 15:13:29
+ * @LastEditors: WoodpeckerAnos
  * @Description: 主程序
  */
 import React, { useState, useEffect } from 'react'
@@ -12,6 +12,7 @@ import { routeData } from '@/store/routes/routesState'
 import { updateRoutes } from '@/store/routes/actions'
 import FrontRoutes, { createRealRoutes } from '@/router'
 import routes from '@/router/routes'
+import LoadingLayer from '@/components/LoadingLayer'
 
 function App() {
   const 
@@ -36,6 +37,7 @@ function App() {
   return (
     <div className="App">
       <FrontRoutes routes={realRoutes}/>
+      <LoadingLayer />
     </div>
   )
 }
