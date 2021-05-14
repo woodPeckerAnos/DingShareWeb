@@ -8,7 +8,8 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 import { Button, Layout } from 'UI/main'
-import { normalRequest, testLoading } from 'fetch'
+import { testLoading } from 'fetch'
+import Services from '@/services/service'
 import './homepage.scss'
 
 const { Header, Content, Footer } = Layout
@@ -20,12 +21,13 @@ interface homePageProps {
 const HomePage:　FC<homePageProps> = function() {
     const times = 1
     const testRequest = function() {
-        for(let i = 0; i < times; i++) {
-            setTimeout(
-                testLoading,
-                i * 1000
-            )
-        }
+        Services.getGameDetails({ appids: 632360 })
+        // for(let i = 0; i < times; i++) {
+        //     setTimeout(
+        //         testLoading,
+        //         i * 1000
+        //     )
+        // }
     }
     return (
         <Layout

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 16:30:25
- * @LastEditTime: 2021-05-13 23:28:37
+ * @LastEditTime: 2021-05-15 00:04:20
  * @LastEditors: Please set LastEditors
  * @Description: 封装基于fetch的请求 1，普通fetch 2，基于权限的fetch
  */
@@ -42,6 +42,10 @@ class $Request {
         // 格式化参数
         const _headers = new Headers(options.headers)
         const _params = qs.stringify(options.params, { addQueryPrefix: true })
+
+        // _headers.append("Access-Control-Allow-Origin", "*")
+        // _headers.append("Access-Control-Allow-Credentials", 'true')
+
         // 创建请求
         this.startLoading()
         const _request = new Request(
@@ -161,101 +165,13 @@ class $Request {
 }
 
 // 普通请求
-const normalRequest = (method, url, options) => {
-    let _url = url
-    let _method = method.toUpperCase()
-    // 请求头信息
-    const _headers = new Headers(options.headers)
-    // 请求参数
-    let params = {}
-    if (_method === 'GET') {
+const normalRequest = new $Request(host, false)
 
-    }
-    if (_method === 'POST') {
-
-    }
-    // 创建请求
-    const _request = new Request(
-        _url,
-        {
-            method: _method,
-            headers: _headers,
-            ...params
-        }
-    )
-    // 发送请求
-    // 处理响应并返回
-    return fetch(_request)
-        .then(response => {
-
-        })
-        .then(res => {
-
-        })
-        .catch(error => {
-
-        })
-        .finally(() => {
-
-        })
-
-}
-function get(url, options) {
-
-}
-function post(url, options) {
-
-}
-
-// 在响应中添加对权限信息的监听，没有权限的情况下直接跳转到登录页
-function requestWithAuth(method, url, options) {
-    let _url = url
-    // 请求头信息
-    const _headers = new Headers(options.headers)
-    // 请求参数
-    let params = {}
-    if (method === 'GET') {
-
-    }
-    if (method === 'POST') {
-
-    }
-    // 创建请求
-    const _request = new Request(
-        _url,
-        {
-            method,
-            headers: _headers,
-            ...params
-        }
-    )
-    // 发送请求
-    // 处理响应并返回
-    return fetch(_request)
-        .then(response => {
-            // 需要判断当前的状态码，是否处于非授权状态
-            // 非授权状态直接跳转到login页面
-        })
-        .then(res => {
-
-        })
-        .catch(error => {
-
-        })
-        .finally(() => {
-
-        })
-}
+// 带授权校验的请求
+const requestWithAuth = new $Request(host, true)
 
 // 请求steam数据
-function requestToSteam(method, url, options) {
-
-}
-
-// helper
-function createRequest() {}
-
-function verifyAuth() {}
+const requestSteam = new $Request(steamHost, true)
 
 // test
 function testLoading(delay = 1500) {
@@ -271,5 +187,6 @@ function testLoading(delay = 1500) {
 export {
     normalRequest,
     requestWithAuth,
+    requestSteam,
     testLoading
 }
