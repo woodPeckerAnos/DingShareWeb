@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-05-11 15:59:25
+ * @LastEditTime: 2021-05-15 13:54:43
  * @LastEditors: Please set LastEditors
  * @Description: Vite Configs
  */
@@ -13,11 +13,24 @@ const path = require('path')
 const { resolve } = path
 
 // https://vitejs.dev/config/
-const needDynamicImport_1 = path.join(__dirname, 'src', 'router', 'index.tsx')
-const needDynamicImport_2 = path.join(__dirname, 'src', 'router', 'components', 'AysncComponent.tsx')
+
 export default {
   ...defineConfig({
-    plugins: [reactRefresh(), dynamicImportVars({include: [needDynamicImport_1, needDynamicImport_2]})],
+    plugins: [
+      reactRefresh(), 
+      dynamicImportVars({
+        include: [], 
+        exclude: [
+          // 不编译html文件，因为编译html文件必定会解析失败，需要手动指定去除
+          "./*.html", 
+          "/login/*.html", 
+          "/src/assets/styles/*.scss", 
+          "/src/assets/styles/*.themes.less", 
+          "node_modules/**"
+        ], 
+        warnOnError: true
+      })
+    ],
     //打包路径
     base:  './', 
     resolve: {

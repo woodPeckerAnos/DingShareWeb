@@ -1,8 +1,8 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-06 21:02:02
- * @LastEditTime: 2021-05-12 00:20:45
- * @LastEditors: WoodpeckerAnos
+ * @LastEditTime: 2021-05-15 13:02:39
+ * @LastEditors: Please set LastEditors
  * @Description: react 路由, 根据routes数组, 输出异步加载组件构成的前端路由集合
  */
 import React from 'react'
@@ -66,9 +66,18 @@ function withDefaultPage(routes: routeData[]): routeData[] {
     return [_defaultPage].concat(routes).concat(_NotFoundPage)
 }
 
+function importLocale(_compPath: string, entranceName: string = 'index') {
+    return import(/* @vite-ignore */`../pages/${_compPath}/${entranceName}.tsx`)
+}
+
 function withAsyncComponent(menuComponent: string) {
-    const _compPath = menuComponent.endsWith('index') ? menuComponent : `${menuComponent}/index`
-    const importFunc = () => import(`../pages/${_compPath}.tsx`)
+    let _compPath = menuComponent
+    let _entranceName: string
+    if (menuComponent.includes('/')) {
+        _compPath = menuComponent.split('/').slice(0, -1).join('/')
+        _entranceName = menuComponent.split('/').slice(-1)[0]
+    }
+    const importFunc = () => importLocale(_compPath, _entranceName)
     return (props: RouteComponentProps) => <AysncComponent importFunc={importFunc} {...props}/>
 }
 
