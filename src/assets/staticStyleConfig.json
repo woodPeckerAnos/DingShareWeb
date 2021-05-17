@@ -1,4 +1,5 @@
 {
     "themecolor": "rgb(244, 157, 51)",
-    "rootfontsize": "100px"
+    "rootfontsize": "100px",
+    "pxPerRem": "100"
 }

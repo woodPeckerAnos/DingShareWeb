@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-05-15 13:54:43
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-17 22:45:26
+ * @LastEditors: WoodpeckerAnos
  * @Description: Vite Configs
  */
 import { defineConfig } from 'vite'
@@ -26,7 +26,8 @@ export default {
           "/login/*.html", 
           "/src/assets/styles/*.scss", 
           "/src/assets/styles/*.themes.less", 
-          "node_modules/**"
+          "node_modules/**",
+          "/src/pages/**/*.scss"
         ], 
         warnOnError: true
       })

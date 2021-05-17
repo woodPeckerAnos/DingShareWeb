@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2021-05-11 10:56:58
- * @LastEditTime: 2021-05-11 23:23:04
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-17 23:25:29
+ * @LastEditors: WoodpeckerAnos
  * @Description: 响应式布局文件, 原始设计以1920 * 1080为适配基础
  */
 import { rootfontsize } from '@/assets/staticStyleConfig.json'

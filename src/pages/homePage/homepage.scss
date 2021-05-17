@@ -1,0 +1,19 @@
+.dingshare-homepage-container {
+    .dingshare-header.dingshare-homepage-header {
+        height: calc(104rem / var(--pxPerRem));
+    }
+    .dingshare-content {
+        .dingshare-banner {
+            height: 450px;
+            background-color: pink;
+            .banner-bg {
+                height: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+    .dingshare-footer.dingshare-homepage-footer {
+        height: calc(156rem / var(--pxPerRem));
+    }   
+}
