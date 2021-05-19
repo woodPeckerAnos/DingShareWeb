@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-19 20:46:30
- * @LastEditTime: 2021-05-19 23:05:58
+ * @LastEditTime: 2021-05-19 23:08:18
  * @LastEditors: WoodpeckerAnos
  * @Description: 登陆后可见私人库，未登录则显示登录提示
  */
@@ -59,7 +59,7 @@ function ShowLogIn() {
                 </Button>
                 <p>
                     <span>或者</span>
-                    <span>免费注册</span>
+                    <Button type='link'>免费注册</Button>
                     <span>并立即加入分享行列</span>
                 </p>
             </div>
