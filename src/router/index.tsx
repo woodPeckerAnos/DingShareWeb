@@ -1,8 +1,8 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-06 21:02:02
- * @LastEditTime: 2021-05-15 13:02:39
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2021-05-19 22:04:41
+ * @LastEditors: WoodpeckerAnos
  * @Description: react 路由, 根据routes数组, 输出异步加载组件构成的前端路由集合
  */
 import React from 'react'
@@ -12,6 +12,10 @@ import { routeData } from './routes'
 
 interface frontRoutesProps {
     routes: routeData[]
+}
+
+interface routesDefineObj {
+    subRoute: boolean;
 }
 
 // FrontRoutes 为直接封装的前端路由， 仅通过store更新自己
@@ -30,16 +34,16 @@ const _FrontRoutes = function(props: frontRoutesProps) {
 const _SubFrontRoutes = function(props: frontRoutesProps) {
     return (
         <Switch>
-            { createRouteElement(props.routes) }
+            { createRouteElement(props.routes, true) }
         </Switch>
     )
 }
 
 // helpers
-function createRouteElement(routes: routeData[]): JSX.Element[] {
+function createRouteElement(routes: routeData[], isSubRoute: boolean = false): JSX.Element[] {
     let _routes = routes
     if (routes[0] && routes[0].menuUrl !== '') {
-        _routes = createRealRoutes(routes)
+        _routes = createRealRoutes(routes, isSubRoute)
     }
     return _routes.map(route => {
         if (route.exact === false) {
@@ -49,7 +53,10 @@ function createRouteElement(routes: routeData[]): JSX.Element[] {
     })
 }
 
-function createRealRoutes(routes: routeData[]): routeData[] {
+function createRealRoutes(routes: routeData[], isSubRoute: boolean): routeData[] {
+    if (isSubRoute) {
+        return withDefaultSubRoute(routes)
+    }
     return withDefaultPage(routes)
 }
 
@@ -57,13 +64,25 @@ function withDefaultPage(routes: routeData[]): routeData[] {
     if (routes.length === 0) {
         return []
     }
-    let _defaultPage = { menuName: '主页', menuUrl: '', menuComponent: 'homePage' } as routeData
+    let _defaultPage/*  = { menuName: '主页', menuUrl: '', menuComponent: 'homePage' } as routeData */
     const _homePage = routes.find(page => page.menuComponent === 'homePage')
     const _NotFoundPage = [{ menuName: '未找到页面', menuUrl: '', menuComponent: 'notFound', exact: false }]
     if (_homePage) {
         _defaultPage = { ..._homePage, menuUrl: '' } as routeData
+    } else {
+        _defaultPage = { ...routes[0], menuUrl: ''  } as routeData
     }
     return [_defaultPage].concat(routes).concat(_NotFoundPage)
+}
+
+function withDefaultSubRoute(routes: routeData[]): routeData[] {
+    if (routes.length === 0) {
+        return []
+    }
+    // 取父路由，必须为子路由的第一级
+    const _defaultPage = { ...routes[0], menuUrl: routes[0].menuUrl.split('/')[0]  } as routeData
+
+    return [_defaultPage].concat(routes)
 }
 
 function importLocale(_compPath: string, entranceName: string = 'index') {

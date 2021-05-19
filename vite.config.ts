@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-05-17 22:45:26
+ * @LastEditTime: 2021-05-19 20:52:26
  * @LastEditors: WoodpeckerAnos
  * @Description: Vite Configs
  */
@@ -39,7 +39,7 @@ export default {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         'utils': path.resolve(__dirname, 'src', 'utils'),
-        'commonDefines': path.resolve(__dirname, 'src', 'defines', 'common'),
+        'commonDefines': path.resolve(__dirname, 'src', 'defines', 'common.d.ts'),
         'defines':  path.resolve(__dirname, 'src', 'defines'),
         'UI': path.resolve(__dirname, 'src', 'UI'),
         'fetch': path.resolve(__dirname, 'src', 'services', 'fetch', 'index')

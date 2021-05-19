@@ -19,7 +19,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "utils/*": ["./src/utils/*"],
-      "commonDefines": ["./src/defines/common"],
+      "commonDefines": ["./src/defines/common.d.ts"],
       "defines/*": ["./src/defines/*"],
       "UI/*": ["./src/UI/*"],
       "fetch": ["./src/services/fetch/index"]
