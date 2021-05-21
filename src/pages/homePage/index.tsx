@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-06 20:57:56
- * @LastEditTime: 2021-05-19 21:04:50
+ * @LastEditTime: 2021-05-21 21:10:50
  * @LastEditors: WoodpeckerAnos
  * @Description: 主页
  */
@@ -11,6 +11,8 @@ import { Layout } from 'UI/main'
 import Services from '@/services/service'
 import Banner from './components/Banner'
 import LoginToShow from './components/LoginToShow'
+import MiddleBanner from './components/MiddleBanner'
+import PublicStoreList from './components/PublicStoreList'
 import './homepage.scss'
 
 const { Header, Content, Footer } = Layout
@@ -38,9 +40,9 @@ const HomePage:　FC<homePageProps> = function() {
                 {/* 放置权限模块，登录则显示私有库，未登录则显示登录按钮 */}
                 <LoginToShow />
                 {/* 轮播banner -> 参照steam特惠 */}
-
+                <MiddleBanner />
                 {/* 列表list -> 展示当前存在的库内容 */}
-                
+                <PublicStoreList />
             </Content>
             <Footer
                 className={classNames('dingshare-footer', 'dingshare-homepage-footer')}

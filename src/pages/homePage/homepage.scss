@@ -26,20 +26,36 @@
             // 提示登录的通栏容器
             width: 100%;
             height: calc(267rem / var(--pxPerRem));
-            min-height: 155px;
+            min-height: 220px;  
             background-color: black;
             position: relative;
             .need-login-tips {
                 width: calc(780rem / var(--pxPerRem));
+                min-width: 264px;
                 height: calc(267rem / var(--pxPerRem));
+                min-height: 220px;  
                 padding: calc(20rem / var(--pxPerRem)) calc(120rem / var(--pxPerRem)) 0;
-                min-height: 155px;
                 position: absolute;
                 top: 0;
                 left: 50%;
                 transform: translateX(-50%);
+                text-align: center;
                 h3, p, p > span {
                     color: white;
+                }
+                .main-title {
+                    padding-top: 6%;
+                    font-size: 24px;
+                }
+                .main-description {
+                    font-size: 16px;
+                    padding: 10px 0;
+                }
+                .login-btn {
+                    margin: 10px 0;
+                }
+                .sub-infos {
+                    font-size: 16px;
                 }
             }
         }
