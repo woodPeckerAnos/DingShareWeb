@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 18:45:07
- * @LastEditTime: 2021-05-12 15:13:29
+ * @LastEditTime: 2021-05-21 23:11:35
  * @LastEditors: WoodpeckerAnos
  * @Description: 主程序
  */
@@ -28,7 +28,7 @@ function App() {
   useEffect(
     () => {
       // 初始化路由
-      const _routes = createRealRoutes(routes)
+      const _routes = createRealRoutes(routes, false)
       dispatch(updateRoutes(_routes))
     },
     []
