@@ -1,16 +1,16 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-16 22:45:52
- * @LastEditTime: 2021-05-19 20:39:26
+ * @LastEditTime: 2021-06-05 21:20:07
  * @LastEditors: WoodpeckerAnos
  * @Description: banner模组
  */
-
 import React from 'react'
 import classNames from 'classnames'
 import { Button } from 'UI/main'
 
 function Banner() {
+    // 从接口查询对应的banner资源，从steam爬取
     const jumpToSteamPost = function() {
         
     }

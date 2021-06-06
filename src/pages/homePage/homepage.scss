@@ -1,21 +1,32 @@
+// class prototype
+.banner-center-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .dingshare-homepage-container {
     .dingshare-header.dingshare-homepage-header {
         height: calc(104rem / var(--pxPerRem));
     }
     .dingshare-content {
+        .dingshare-normal-background {
+            background-color: #1b2838;
+        }
+
         .dingshare-banner {
             height: 450px;
-            background-color: pink;
+            // fixUI
+            background-color: black;
+
             position: relative;
             .banner-bg {
-                height: 100%;
+                @extend .banner-center-container;
                 display: block;
-                position: absolute;
-                top: 0;
-                left: 50%;
-                transform: translateX(-50%);
             }
-            .bg-to-steam-btn {
+            .bg-to-steam-btn {  
                 position: absolute;
                 bottom: 40px;
                 left: 50%;
@@ -59,6 +70,17 @@
                 }
             }
         }
+        .dingshare-middle-banner-hot {
+            width: 100%;
+            height: calc(350rem / var(--pxPerRem));
+            position: relative;
+            .middle-banner-center-container {
+                @extend .banner-center-container;
+                width: calc(1600rem / var(--pxPerRem));
+                background-color: white;
+            }
+        }
+        
     }
     .dingshare-footer.dingshare-homepage-footer {
         height: calc(156rem / var(--pxPerRem));
