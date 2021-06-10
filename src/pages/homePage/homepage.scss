@@ -1,13 +1,13 @@
-// class prototype
-.banner-center-container {
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
 .dingshare-homepage-container {
+    // class prototype
+    .banner-center-container {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .dingshare-header.dingshare-homepage-header {
         height: calc(104rem / var(--pxPerRem));
     }
@@ -20,7 +20,7 @@
             height: 450px;
             // fixUI
             background-color: black;
-
+            overflow: hidden;
             position: relative;
             .banner-bg {
                 @extend .banner-center-container;
@@ -72,17 +72,26 @@
         }
         .dingshare-middle-banner-hot {
             width: 100%;
-            height: calc(350rem / var(--pxPerRem));
+            height: calc(550rem / var(--pxPerRem));
             position: relative;
             .middle-banner-center-container {
                 @extend .banner-center-container;
                 width: calc(1600rem / var(--pxPerRem));
-                background-color: white;
+                padding: 0 calc(60rem / var(--pxPerRem));
+                background-color: transparent;
+                .ant-carousel {
+                    margin-top: calc(20rem / var(--pxPerRem));
+                    .carousel-page-container {
+                        filter: blur(3px);
+                        height: calc(510rem / var(--pxPerRem));
+                    }
+                }
             }
         }
         
     }
     .dingshare-footer.dingshare-homepage-footer {
         height: calc(156rem / var(--pxPerRem));
+        background-image: linear-gradient(#1b2838, #d9d9d9);
     }
 }
