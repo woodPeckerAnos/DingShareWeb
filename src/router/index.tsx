@@ -1,17 +1,23 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-06 21:02:02
- * @LastEditTime: 2021-05-19 22:04:41
+ * @LastEditTime: 2021-07-11 17:28:24
  * @LastEditors: WoodpeckerAnos
  * @Description: react 路由, 根据routes数组, 输出异步加载组件构成的前端路由集合
  */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route, HashRouter as Router, RouteComponentProps } from 'react-router-dom'
 import AysncComponent from './components/AysncComponent'
-import { routeData } from './routes'
+import { routeData, childRouteData } from './routes'
 
 interface frontRoutesProps {
-    routes: routeData[]
+    routes: routeData[];
+    
+}
+
+interface frontSubRoutesProps extends frontRoutesProps {
+    routes: childRouteData[];
+    areaMatches: string[]; // 当前区域可以生效的子路由集合
 }
 
 interface routesDefineObj {
@@ -31,10 +37,22 @@ const _FrontRoutes = function(props: frontRoutesProps) {
 }
 
 // 父路由下的次级路由 -> 适用于页面部分组件通过子路由控制的情况
-const _SubFrontRoutes = function(props: frontRoutesProps) {
+const _SubFrontRoutes = function({ areaMatches = [], routes }: frontSubRoutesProps) {
+    const [_subs, updateSubs] = useState<any[]>([])
+    useEffect(
+        () => {
+            if (routes) {
+                const realSubs = routes.filter(({ selfPath }) => areaMatches.includes(selfPath))
+                updateSubs(
+                    createRouteElement(realSubs, true)
+                )
+            }
+        },
+        [routes, areaMatches]
+    )
     return (
         <Switch>
-            { createRouteElement(props.routes, true) }
+            { _subs }
         </Switch>
     )
 }
@@ -52,14 +70,12 @@ function createRouteElement(routes: routeData[], isSubRoute: boolean = false): J
         return (<Route key={route.menuUrl} path={`/${route.menuUrl}`} component={withAsyncComponent(route.menuComponent)} exact />)
     })
 }
-
-function createRealRoutes(routes: routeData[], isSubRoute: boolean): routeData[] {
+function createRealRoutes(routes: routeData[] | childRouteData[], isSubRoute: boolean): routeData[] {
     if (isSubRoute) {
-        return withDefaultSubRoute(routes)
+        return withDefaultSubRoute(routes as childRouteData[])
     }
     return withDefaultPage(routes)
 }
-
 function withDefaultPage(routes: routeData[]): routeData[] {
     if (routes.length === 0) {
         return []
@@ -74,21 +90,16 @@ function withDefaultPage(routes: routeData[]): routeData[] {
     }
     return [_defaultPage].concat(routes).concat(_NotFoundPage)
 }
-
-function withDefaultSubRoute(routes: routeData[]): routeData[] {
+function withDefaultSubRoute(routes: childRouteData[]): routeData[] {
+    // 子路由逻辑变更，所有的鉴权子路由的父路由都是非严格匹配，动态获取路由权限后跳转到子路由第一项
     if (routes.length === 0) {
         return []
     }
-    // 取父路由，必须为子路由的第一级
-    const _defaultPage = { ...routes[0], menuUrl: routes[0].menuUrl.split('/')[0]  } as routeData
-
-    return [_defaultPage].concat(routes)
+    return routes.map(route => ({ ...route, exact: false }))
 }
-
 function importLocale(_compPath: string, entranceName: string = 'index') {
     return import(/* @vite-ignore */`../pages/${_compPath}/${entranceName}.tsx`)
 }
-
 function withAsyncComponent(menuComponent: string) {
     let _compPath = menuComponent
     let _entranceName: string
@@ -100,9 +111,9 @@ function withAsyncComponent(menuComponent: string) {
     return (props: RouteComponentProps) => <AysncComponent importFunc={importFunc} {...props}/>
 }
 
+// export
 const FrontRoutes = React.memo(_FrontRoutes, arePropsEqual)
 const SubFrontRoutes = React.memo(_SubFrontRoutes, arePropsEqual)
-
 // memoHandler -> 仅随routes更新；严格的store规范可以让此处的判断非常简单
 function arePropsEqual(prevProps: frontRoutesProps, nextProps: frontRoutesProps) {
     if (prevProps.routes === nextProps.routes) {

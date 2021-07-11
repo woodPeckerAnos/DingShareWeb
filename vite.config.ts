@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-05-19 20:52:26
+ * @LastEditTime: 2021-07-11 17:28:52
  * @LastEditors: WoodpeckerAnos
  * @Description: Vite Configs
  */
@@ -49,7 +49,8 @@ export default {
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
-          login: resolve(__dirname, 'login', 'index.html')
+          login: resolve(__dirname, 'login', 'index.html'),
+          register: resolve(__dirname, 'register', 'index.html')
         }
       }
     },

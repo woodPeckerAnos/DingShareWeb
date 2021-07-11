@@ -6,9 +6,10 @@
  * @Description: ts 通用类型定义文件
  */
 import rootState from '@/store/rootState'
-import { routeData } from '@/store/routes/routesState'
+import { routeData, childRouteData } from '@/store/routes/routesState'
 
 export type {
     rootState,
-    routeData
+    routeData,
+    childRouteData
 }

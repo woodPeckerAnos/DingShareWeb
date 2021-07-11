@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 21:01:35
- * @LastEditTime: 2021-05-19 22:20:45
+ * @LastEditTime: 2021-07-11 17:33:43
  * @LastEditors: WoodpeckerAnos
  * @Description: 基础路由
  */
@@ -10,7 +10,11 @@ export interface routeData {
     menuUrl: string;
     menuComponent: string;
     exact?: boolean;
-    children?: routeData[];
+    children?: childRouteData[];
+}
+
+export interface childRouteData extends routeData {
+    selfPath: string;
 }
 
 const routes: routeData[] = [
@@ -19,11 +23,12 @@ const routes: routeData[] = [
         menuUrl: 'homePage',
         menuComponent: 'homePage',
         children: [
-            // {
-            //     menuName: '个人库信息',
-            //     menuUrl: 'homePage/privateStore',
-            //     menuComponent: 'privateStore',
-            // }
+            {
+                menuName: '个人库信息',
+                menuUrl: 'homePage',
+                selfPath: 'privateStore',
+                menuComponent: 'privateStore',
+            }
         ]
     },
 ]

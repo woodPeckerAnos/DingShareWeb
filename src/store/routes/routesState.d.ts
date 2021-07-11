@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-09 21:43:08
- * @LastEditTime: 2021-05-12 00:02:27
+ * @LastEditTime: 2021-07-11 16:41:21
  * @LastEditors: WoodpeckerAnos
  * @Description: In User Settings Edit
  * @FilePath: \dingshare-web\src\store\routes\routesState.d.ts
@@ -13,7 +13,11 @@ interface routeData {
     menuUrl: string;
     menuComponent: string;
     exact?: boolean;
-    children?: routeData[];
+    children?: childRouteData[];
+}
+
+export interface childRouteData extends routeData {
+    selfPath: string;
 }
 
 type Routes = routeData[]
