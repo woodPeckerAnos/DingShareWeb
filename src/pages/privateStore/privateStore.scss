@@ -51,11 +51,20 @@
         height: 100%;
         display: flex;
         .left-container {
-            background-color: pink;
-            flex: 2
+            flex: 2;
+            border-right: 1px dashed var(--themecolor);
+            display: flex;
+            flex-direction: column;
+            .list-head-infos {
+                height: 60px;
+                background-color: pink;
+            }
+            .subscribed-card-list {
+                flex: 1;
+                overflow: hidden;
+            }
         }
         .right-container {
-            background-color: green;
             flex: 1
         }
     }

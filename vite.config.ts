@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-07-11 17:28:52
+ * @LastEditTime: 2021-07-12 19:26:01
  * @LastEditors: WoodpeckerAnos
  * @Description: Vite Configs
  */
@@ -27,7 +27,8 @@ export default {
           "/src/assets/styles/*.scss", 
           "/src/assets/styles/*.themes.less", 
           "node_modules/**",
-          "/src/pages/**/*.scss"
+          "/src/pages/**/*.scss",
+          "/src/UI/**/*.scss"
         ], 
         warnOnError: true
       })

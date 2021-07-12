@@ -1,12 +1,13 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-07-11 17:35:30
- * @LastEditTime: 2021-07-11 18:40:30
+ * @LastEditTime: 2021-07-12 18:23:24
  * @LastEditors: WoodpeckerAnos
  * @Description: 已订阅展示
  */
 import React from 'react'
 import classNames from 'classnames'
+import VirtualCardList from 'UI/virtualCardList'
 
 function SubscribeInfost() {
     return (
@@ -17,7 +18,15 @@ function SubscribeInfost() {
             <div
                 className={classNames('subscribed-list', 'left-container')}
             >
-
+                <div
+                    className={classNames('subscribed-list', 'list-head-infos')}
+                >
+                </div>
+                <div
+                    className={classNames('subscribed-list', 'subscribed-card-list')}
+                >
+                    <VirtualCardList />
+                </div>
             </div>
             {/* 一些详情 */}
             <div
