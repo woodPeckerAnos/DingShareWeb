@@ -1,43 +1,47 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-07-11 18:59:00
- * @LastEditTime: 2021-07-12 20:05:05
+ * @LastEditTime: 2021-07-18 18:34:33
  * @LastEditors: WoodpeckerAnos
  * @Description: 虚拟滚动的卡片列表
  *                 构建卡片的数据类型 { imgSrc, name, tags, off, price }
  */
-import React from 'react'
-import { Card, Col, Row } from 'UI/main' 
+import React, { useCallback } from 'react'
+import classNames from 'classnames'
+import { Card, Col, Row, Tag } from 'UI/main' 
 import { FixedSizeList } from "react-window"
 import AutoSizer from 'react-virtualized-auto-sizer'
 import isEqual from 'lodash/isEqual'
 import './virtualCardList.scss'
 
-const devData = [
-    {
-        imgSrc: 'https://media.st.dl.pinyuncloud.com/steam/apps/1277400/capsule_sm_120.jpg?t=1626058895',
-        name: 'Monster Hunter Stories 2: Wings of Ruin',
-        tags: ['角色扮演', '冒险', '探索', '日系角色扮演'],
-        off: '0.13',
-        price: '396',
-    },
-    {
-        imgSrc: 'https://media.st.dl.pinyuncloud.com/steam/apps/775500/capsule_184x69.jpg?t=1624639483',
-        name: '绯红结系',
-        tags: ['动作', '冒险', '角色扮演', '动漫'],
-        off: '0.25',
-        price: '328',
-    }
-]
-const devList: any[] = []
-while(devList.length < 1000) {
-    devList.push(devData[devList.length % 2])
-}
+const GUTTER_SIZE = 4
 
 function VirtualCardList({
-    dataSource = devList,
+    dataSource = [],
+    onRow,
+    rowClassName,
     ...rest
 }, ref) {
+
+    const renderRow = useCallback(
+        ({ index, style, data }) => {
+            return (
+                <a href='javascript:void 0;' key={index}>
+                    <Card
+                        className='virtual-list-card'
+                        style={{
+                            ...style,
+                            top: index === 0 ? style.top : style.top + GUTTER_SIZE,
+                            height: style.height - GUTTER_SIZE
+                        }}
+                    >
+                        <InnerContent rowData={data[index]} index={index} onRow={onRow} rowClassName={rowClassName} />
+                    </Card>
+                </a>
+            )
+        },
+        [dataSource, onRow],
+    )
     return (
         <AutoSizer>
             {({ height, width }) => {
@@ -50,7 +54,7 @@ function VirtualCardList({
                         itemSize={70}
                         width={width}
                     >
-                        { rowRender }
+                        { renderRow }
                     </FixedSizeList>
                 )
             }}
@@ -59,58 +63,52 @@ function VirtualCardList({
 }
 
 // helpers
-function rowRender({ index, style, data } : rowRenderProps ) {
-    
-    return (
-        <Card
-            className='virtual-list-card'
-            style={style}
-        >
-            <InnerContent rowData={data[index]} />
-        </Card>
-    )
-}
 function isPropsEqual(prev: any, cur: any): boolean {
     return isEqual(prev, cur)
 }
 
 // subs
 const InnerContent = React.memo(
-    ({ rowData }) => {
+    ({ rowData, onRow, rowClassName, index }) => {
+        const onRowEvents = onRow ? onRow(rowData, index) : {}
+        const _rowClasName = rowClassName ? rowClassName(rowData, index) : ''
         return (
-            <Row className='game-card-row'>
+            <Row 
+                className={classNames('game-card-row', _rowClasName)}
+                {...onRowEvents}
+            >
                 {/* img Col */}
-                <Col
+                <div
                     className='game-card-col'
-                    span={6}
+                    style={styles.imgColStyle}
                 >
                     <img 
                         className='game-card-img'
                         src={rowData.imgSrc}
                     />
-                </Col>
+                </div>
                 {/* infos Col */}
-                <Col
+                <div
                     className='game-card-col'
-                    span={14}
+                    style={styles.infosColStyle}
                 >
                     <p>{ rowData.name }</p>
-                    <p>{ rowData.tags.join(',') }</p>
-                </Col>
+                    <p>{ rowData.tags.map(text => <Tag>{text}</Tag>) }</p>
+                </div>
                 {/* off Col */}
-                <Col
+                <div
                     className='game-card-col'
-                    span={2}
+                    style={styles.offColStyle}
                 >
                     <span>{ rowData.off }</span>
-                </Col>
+                </div>
                 {/* priceCol */}
-                <Col
+                <div
                     className='game-card-col'
-                    span={2}
+                    style={styles.priceColStyle}
                 >
                     <span>{ rowData.price }</span>
-                </Col>  
+                </div>  
             </Row>
         )
     },
@@ -120,6 +118,36 @@ const InnerContent = React.memo(
 interface rowRenderProps {
     index: number;
     style: React.CSSProperties;
+}
+
+const styles = {
+    imgColStyle: {
+        width: 'fit-content',
+        flex: 'none'
+    },
+    infosColStyle: {
+        paddingLeft: '2%',
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        paddingTop: 4,
+        paddingBottom: 4
+    },
+    offColStyle: {
+        width: '5%',
+        minWidth: 50,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    priceColStyle: {
+        width: '5%',
+        minWidth: 50,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 }
 
 

@@ -1,7 +1,10 @@
 
 .virtual-list-card {
+    .ant-card {
+        border: none;
+    }
     .ant-card-body {
-        padding: 10px;
+        padding: 0px;
         height: 100%;
         .game-card-row {
             height: 100%;

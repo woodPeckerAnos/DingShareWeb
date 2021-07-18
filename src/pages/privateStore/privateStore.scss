@@ -1,7 +1,11 @@
+$tabBGC: #d9f7be;
+$headHeight: 76px;
+$activeGameColor: #f6ffed;
 
 .need-authority.private-store-list {
     height: calc(820rem / var(--pxPerRem));
     width: calc(1600rem / var(--pxPerRem));
+    max-width: 1600px;
     margin: 0 auto;
     padding: 10px 0;
     .private-store-tabs {
@@ -50,22 +54,56 @@
     .private-store-list.subscribed-list {
         height: 100%;
         display: flex;
+        background-color: $tabBGC;
         .left-container {
-            flex: 2;
+            flex: 3;
             border-right: 1px dashed var(--themecolor);
             display: flex;
             flex-direction: column;
             .list-head-infos {
-                height: 60px;
-                background-color: pink;
+                height: $headHeight;
+                padding-left: 10px;
+                h3 {
+                    color: var(--themecolor);
+                }
             }
             .subscribed-card-list {
                 flex: 1;
-                overflow: hidden;
+                background-color: $tabBGC;
+                .game-card-row {
+                    background-color: #237804;
+                    color: white;
+                }
+                .virtual-list-item-card-active {
+                    background-color: $activeGameColor;
+                    color: #262626;
+                    position: relative;
+                    // has problem with react-window, should find way to fix
+                    &::after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        right: -11px;
+                        height: 100%;
+                        width: 11px;
+                        background-color: $activeGameColor;
+                    }
+                }
             }
         }
         .right-container {
-            flex: 1
+            flex: 2;
+            padding-left: 10px;
+            display: flex;
+            flex-direction: column;
+            .personal-shared-infos {
+                height: $headHeight;
+            }
+            .chosen-game-detail {
+                flex: 1;
+                background-color: $activeGameColor;
+            }
         }
     }
 }

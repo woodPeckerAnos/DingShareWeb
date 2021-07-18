@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-21 21:09:13
- * @LastEditTime: 2021-06-10 15:08:59
+ * @LastEditTime: 2021-07-18 18:10:14
  * @LastEditors: WoodpeckerAnos
  * @Description: 中等大小的轮播展示 -> 热门游戏展示
  */
@@ -26,6 +26,7 @@ function MiddleBanner() {
                                     'carousel-page-container', 
                                     `carousel-page-${index}`
                                 )}
+                                key={index}
                             >
                                 <h3 
                                     style={{
