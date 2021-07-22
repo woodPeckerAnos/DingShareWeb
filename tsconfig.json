@@ -22,7 +22,8 @@
       "commonDefines": ["./src/defines/common.d.ts"],
       "defines/*": ["./src/defines/*"],
       "UI/*": ["./src/UI/*"],
-      "fetch": ["./src/services/fetch/index"]
+      "fetch": ["./src/services/fetch/index"],
+      "helpers": ["./src/utils/helpers"],
     } 
   },
   "include": ["./src"]

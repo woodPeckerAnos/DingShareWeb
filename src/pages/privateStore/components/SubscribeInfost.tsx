@@ -1,11 +1,11 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-07-11 17:35:30
- * @LastEditTime: 2021-07-18 21:51:54
+ * @LastEditTime: 2021-07-22 17:25:06
  * @LastEditors: WoodpeckerAnos
  * @Description: 已订阅展示
  */
-import React, { useRef, useState, useCallback } from 'react'
+import React, { useRef, useState, useCallback, useEffect } from 'react'
 import classNames from 'classnames'
 import VirtualCardList from 'UI/virtualCardList'
 import { Typography, Input } from 'UI/main'
@@ -45,6 +45,7 @@ function SubscribeInfost() {
     const rowClassName = function(record, index) {
         if (index === activeCard) return 'virtual-list-item-card-active'
     }
+    
     return (
         <div
             className={classNames('private-store-list', 'subscribed-list')}
@@ -60,7 +61,7 @@ function SubscribeInfost() {
                         style={styles.titleStyle}
                         level={3}
                     >
-                        我已分享的游戏：
+                        我已订阅的游戏：
                     </Typography.Title>
                     <Input.Search
                         style={styles.searchStyle}

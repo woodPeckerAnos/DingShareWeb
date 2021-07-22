@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-08 18:45:07
- * @LastEditTime: 2021-05-21 23:11:35
+ * @LastEditTime: 2021-07-22 17:40:55
  * @LastEditors: WoodpeckerAnos
  * @Description: 主程序
  */
@@ -36,8 +36,10 @@ function App() {
   
   return (
     <div className="App">
-      <FrontRoutes routes={realRoutes}/>
-      <LoadingLayer />
+      <div className='bg-layout'>
+        <FrontRoutes routes={realRoutes}/>
+        <LoadingLayer />
+      </div>
     </div>
   )
 }

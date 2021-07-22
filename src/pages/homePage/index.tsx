@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-06 20:57:56
- * @LastEditTime: 2021-07-11 18:52:02
+ * @LastEditTime: 2021-07-22 19:25:15
  * @LastEditors: WoodpeckerAnos
  * @Description: 主页
  */
@@ -14,6 +14,7 @@ import LoginToShow from './components/LoginToShow'
 import MiddleBanner from './components/MiddleBanner'
 import PublicStoreList from './components/PublicStoreList'
 import Logo from './components/Logo'
+import HeaderLine from '@/components/HeaderLine'
 import './homepage.scss'
 
 const { Header, Content, Footer } = Layout
@@ -32,7 +33,7 @@ const HomePage:　FC<homePageProps> = function() {
                 className={classNames('dingshare-header', 'dingshare-homepage-header')}
             >
                 {/* 顶部主要为操作栏 */}
-                <Logo />
+                <HeaderLine />
             </Header>
             <Content
                 className={classNames('dingshare-content', 'dingshare-homepage-content')}

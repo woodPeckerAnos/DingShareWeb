@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-06 20:50:38
- * @LastEditTime: 2021-07-12 19:26:01
+ * @LastEditTime: 2021-07-22 19:22:53
  * @LastEditors: WoodpeckerAnos
  * @Description: Vite Configs
  */
@@ -43,7 +43,8 @@ export default {
         'commonDefines': path.resolve(__dirname, 'src', 'defines', 'common.d.ts'),
         'defines':  path.resolve(__dirname, 'src', 'defines'),
         'UI': path.resolve(__dirname, 'src', 'UI'),
-        'fetch': path.resolve(__dirname, 'src', 'services', 'fetch', 'index')
+        'fetch': path.resolve(__dirname, 'src', 'services', 'fetch', 'index'),
+        'helpers': path.resolve(__dirname, 'src', 'utils', 'helpers'),
       }
     },
     build: {

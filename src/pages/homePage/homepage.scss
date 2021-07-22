@@ -7,19 +7,21 @@
         left: 50%;
         transform: translateX(-50%);
     }
+    background-color: transparent;
 
     .dingshare-header.dingshare-homepage-header {
         height: calc(104rem / var(--pxPerRem));
+        // header bgc
+        background-color: #171a21;
     }
     .dingshare-content {
         .dingshare-normal-background {
-            background-color: #1b2838;
+
         }
 
         .dingshare-banner {
             height: 450px;
             // fixUI
-            background-color: black;
             overflow: hidden;
             position: relative;
             .banner-bg {
@@ -38,7 +40,6 @@
             width: 100%;
             height: calc(267rem / var(--pxPerRem));
             min-height: 220px;  
-            background-color: black;
             position: relative;
             .need-login-tips {
                 width: calc(780rem / var(--pxPerRem));
@@ -72,7 +73,6 @@
         }
         .dingshare-content-need-auth {
             width: 100%;
-            background-color: #1b2838;
             position: relative;
         }
         .dingshare-middle-banner-hot {
@@ -97,6 +97,7 @@
     }
     .dingshare-footer.dingshare-homepage-footer {
         height: calc(156rem / var(--pxPerRem));
-        background-image: linear-gradient(#1b2838, #d9d9d9);
+        // footer bgc
+        background-color: #171a21;
     }
 }

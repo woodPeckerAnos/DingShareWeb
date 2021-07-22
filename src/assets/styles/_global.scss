@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-07 16:46:25
- * @LastEditTime: 2021-05-19 22:27:37
+ * @LastEditTime: 2021-07-22 17:41:16
  * @LastEditors: WoodpeckerAnos
  * @Description: 全局样式文件
  */
@@ -13,6 +13,9 @@ html {
         .App {
             height: 100%;
             overflow-y: auto;
+            .bg-layout {
+                background: url(../dev/steam_colored_body_top.png) center top no-repeat #1b2838;
+            }
         }
     }
 }

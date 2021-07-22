@@ -70,6 +70,9 @@ $activeGameColor: #f6ffed;
             .subscribed-card-list {
                 flex: 1;
                 background-color: $tabBGC;
+                .virtual-list-for-item-cards {
+                    // has problem with react-window, should find way to fix
+                }
                 .game-card-row {
                     background-color: #237804;
                     color: white;
@@ -77,18 +80,18 @@ $activeGameColor: #f6ffed;
                 .virtual-list-item-card-active {
                     background-color: $activeGameColor;
                     color: #262626;
-                    position: relative;
                     // has problem with react-window, should find way to fix
-                    &::after {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        right: -11px;
-                        height: 100%;
-                        width: 11px;
-                        background-color: $activeGameColor;
-                    }
+                    position: relative;
+                    // &::after {
+                    //     content: '';
+                    //     display: block;
+                    //     position: absolute;
+                    //     top: 0;
+                    //     right: -11px;
+                    //     height: 100%;
+                    //     width: 11px;
+                    //     background-color: $activeGameColor;
+                    // }
                 }
             }
         }
