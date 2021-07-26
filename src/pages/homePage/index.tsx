@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-05-06 20:57:56
- * @LastEditTime: 2021-07-22 19:25:15
+ * @LastEditTime: 2021-07-26 17:25:27
  * @LastEditors: WoodpeckerAnos
  * @Description: 主页
  */
@@ -13,8 +13,8 @@ import Banner from './components/Banner'
 import LoginToShow from './components/LoginToShow'
 import MiddleBanner from './components/MiddleBanner'
 import PublicStoreList from './components/PublicStoreList'
-import Logo from './components/Logo'
 import HeaderLine from '@/components/HeaderLine'
+import GuideSearchMenu from '@/components/Guide_SearchMenu'
 import './homepage.scss'
 
 const { Header, Content, Footer } = Layout
@@ -38,6 +38,8 @@ const HomePage:　FC<homePageProps> = function() {
             <Content
                 className={classNames('dingshare-content', 'dingshare-homepage-content')}
             >
+                {/* 搜索导航条，用于快速查找指定游戏 */}
+                <GuideSearchMenu />
                 {/* banner模块 */}
                 <Banner />
                 {/* 放置权限模块，登录则显示私有库，未登录则显示登录按钮 */}

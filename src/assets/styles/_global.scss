@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-05-07 16:46:25
- * @LastEditTime: 2021-07-22 17:41:16
+ * @LastEditTime: 2021-07-26 17:08:23
  * @LastEditors: WoodpeckerAnos
  * @Description: 全局样式文件
  */
@@ -31,4 +31,11 @@ html {
     background-color: rgba(0, 0, 0, .1);
     align-items: center;
     justify-content: center;
+}
+
+.steam-like-content-container {
+    margin: 0 auto;
+    max-width: 940;
+    width: calc(940rem / var(--pxPerRem));
+    position: relative;
 }

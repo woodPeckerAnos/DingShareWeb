@@ -1,0 +1,26 @@
+
+// 定制检索menu部分样式
+.dingShare-search-menu-guide {
+    .search-games {
+        .special-color-search {
+            .ant-input-wrapper {
+                background-color: #316282;
+            }
+            input {
+                background-color: transparent;
+                
+                border-color: /* #4c9acc */#0000004d;
+            }
+            span.ant-input-group-addon {
+                background-color: rgb(108,195,244);
+                &:hover {
+                    background-color: #66c0f4;
+                }
+                button {
+                    background-color: transparent;
+                    border-color: /* #4c9acc */#0000004d;
+                }
+            }
+        }
+    }
+}

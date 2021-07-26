@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-07-11 18:48:48
- * @LastEditTime: 2021-07-22 20:03:41
+ * @LastEditTime: 2021-07-26 17:02:02
  * @LastEditors: WoodpeckerAnos
  * @Description: DingShareIcon
  */
@@ -31,7 +31,8 @@ const styles = {
     },
     imgStyle: {
         width: '100%',
-        height: '100%'
+        height: '100%',
+        verticalAlign: 'top'
     },
     titleStyle: {
         fontSize: 0,

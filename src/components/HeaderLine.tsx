@@ -2,10 +2,10 @@
  * @Author: WoodpeckerAnos
  * @Date: 2021-07-22 18:38:13
  * @LastEditors: WoodpeckerAnos
- * @LastEditTime: 2021-07-22 20:04:54
+ * @LastEditTime: 2021-07-26 17:13:42
  * @Description: 顶部栏
  */
-import React, {  } from 'react'
+import React from 'react'
 import { Typography } from 'UI/main'
 import { stylesObj } from 'commonDefines'
 import { withMemo } from 'helpers'
@@ -19,7 +19,7 @@ const { Title } = Typography
 function HeaderLine() {
     return (
         <div
-            className='dingShare-header-line'
+            className='dingShare-header-line steam-like-content-container'
             style={styles.headerLineStyle}
         >
             <Logo />
@@ -40,18 +40,15 @@ function HeaderLine() {
 
 const styles: stylesObj = {
     headerLineStyle: {
-        margin: '0 auto',
-        maxWidth: 940,
-        width: 'calc(940rem / var(--pxPerRem))',
         display: 'flex',
-        position: 'relative',
         alignItems: 'center',
         color: '#b8b6b4'
     },
     titleStyle: {
         color: '#b8b6b4',
         fontSize: '36px',
-        margin: 0
+        margin: 0,
+        marginRight: 40,
     }
 }
 

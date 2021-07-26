@@ -1,7 +1,7 @@
 /*
  * @Author: WoodpeckerAnos
  * @Date: 2021-07-11 18:59:00
- * @LastEditTime: 2021-07-18 18:34:33
+ * @LastEditTime: 2021-07-26 16:53:44
  * @LastEditors: WoodpeckerAnos
  * @Description: 虚拟滚动的卡片列表
  *                 构建卡片的数据类型 { imgSrc, name, tags, off, price }
@@ -26,7 +26,7 @@ function VirtualCardList({
     const renderRow = useCallback(
         ({ index, style, data }) => {
             return (
-                <a href='javascript:void 0;' key={index}>
+                <a href='#' key={index}>
                     <Card
                         className='virtual-list-card'
                         style={{
