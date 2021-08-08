@@ -1,6 +1,43 @@
 
 // 定制检索menu部分样式
 .dingShare-search-menu-guide {
+    .menu-group {
+        .ant-menu.search-menus {
+            background-color: transparent;
+            line-height: 34px;
+            border-bottom: none;
+            .ant-menu-submenu, .ant-menu-item {
+                margin: 0;
+                padding: 0 10px 0 16px;
+                border-bottom: none;
+                .ant-menu-submenu-title, > a {
+                    color: #d9d9d9;
+                }
+                &.icon-fix-before {
+                    position: relative;
+                    padding-left: 24px;
+                    &:before {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 2px;
+                        top: 6px;
+                        width: 26px;
+                        height: 26px;
+                        background: url('../dev/new_white.svg') top left no-repeat;
+                    }
+                }
+                &:hover, &.ant-menu-submenu-active, &.ant-menu-item-active {
+                    color: #fff;
+                    .ant-menu-submenu-title, > a {
+                        color: #fff;
+                    }
+                    background: linear-gradient(90deg, rgba(33, 162, 255, 0.25) 0%, rgba(33, 162, 255, 0.15) 50%, rgba(50, 50, 51, 0) 100%);
+                    text-shadow: 0px 2px 3px rgb(0 0 0 / 30%);
+                }
+            }
+        }
+    }
     .search-games {
         .special-color-search {
             .ant-input-wrapper {
@@ -22,5 +59,37 @@
                 }
             }
         }
+    }
+}
+.ant-menu-submenu.dingShare-search-guide-common-popmenu {
+    box-shadow: 0 0 12px #000000;
+    ul {
+        padding: 8px 5px;
+        line-height: 17px;
+        font-size: 12px;
+        background: linear-gradient(90deg, rgba(33, 162, 255, 0.1) 1.89%, rgba(50, 50, 51, 0) 50%), linear-gradient(180deg, #575860 11.6%, #3A4852 54.73%, #2C2D34 100%);
+        .ant-menu-item {
+            height: 17px;
+            line-height: 17px;
+            > a {
+                width: fit-content;
+                border-bottom: 1px solid transparent;
+                color: #d9d9d9;
+            }
+            &:hover, .ant-menu-item-active {
+                > a {
+                    border-bottom-color: #fff;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.ant-menu-submenu.dingShare-search-guide-game-types-menu {
+    width: calc(940rem / var(--pxPerRem));
+    min-width: 940px;
+    box-shadow: 0 0 12px #000000;
+    ul {
+        display: grid;
     }
 }
