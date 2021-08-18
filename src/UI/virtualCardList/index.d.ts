@@ -2,24 +2,24 @@
  * @Author: WoodpeckerAnos
  * @Date: 2021-08-11 19:56:15
  * @LastEditors: WoodpeckerAnos
- * @LastEditTime: 2021-08-11 20:11:25
+ * @LastEditTime: 2021-08-18 23:38:50
  * @Description: type declare
  */
-interface cardData {
+export interface cardData {
 
 }
 
-type cardDataSource = cardData[]|undefined
+export type cardDataSource = cardData[]|undefined
 
-interface cardRowEvent {
+export interface cardRowEvent {
 
 }
 
-type onCardListRow =  (arg1: cardData, arg2: number) => cardRowEvent
+export type onCardListRow =  (arg1: cardData, arg2: number) => cardRowEvent
 
-type getRowClassName = (arg1: cardData, arg2: number) => string|undefined
+export type getRowClassName = (arg1: cardData, arg2: number) => string|undefined
 
-interface virtualCardListProps {
+export interface virtualCardListProps {
     dataSource: cardDataSource;
     onRow?: onCardListRow;
     rowClassName?: getRowClassName;
